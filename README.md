@@ -1,7 +1,7 @@
 # 🐟 摸鱼计时器 · Moyu Timer
 
 > 把「摸鱼」变成一场深海潜航。一个不联网、不上传、只属于你自己的桌面小组件。
-## 📸 截图
+## 📸 
 
 ![完整版主画面](screenshots/01-main-abyss.png)
 
@@ -10,9 +10,9 @@
 | ![瑞克主题](screenshots/04-main-rick.png) | ![小窗](screenshots/10-widget-abyss.png) | ![分享图](screenshots/09-share-card.png) |
 
 
-## 🚀 快速开始
+## 🚀 
 
-1. 打开本仓库的 [Releases](https://github.com/TTonyChopper233/moyu-timer/releases) 页面，下载 `摸鱼计时器便携版.exe`。
+1. 打开本仓库的👉 [Releases](https://github.com/TTonyChopper233/moyu-timer/releases) 👈页面，下载 `摸鱼计时器便携版.exe`。
 2. 双击运行，**不需要安装，也不需要装 Node.js 或 Electron**。
 3. 小窗会出现在屏幕右下角。托盘图标右键可以：显示小窗 / 展开完整版 / 退出。
 4. 首次运行时 Windows 可能提示「未知发布者」——这是没有购买代码签名的正常现象，选择 **更多信息 → 仍要运行** 即可。
@@ -20,7 +20,7 @@
 
 
 
-## ✨ 功能亮点
+## ✨
 
 | | |
 |---|---|
