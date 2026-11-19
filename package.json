@@ -5,7 +5,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --win portable --x64"
+    "dist": "electron-builder --win portable --x64",
+    "icon": "node scripts/gen_icon.js",
+    "preview:social": "set ELECTRON_RUN_AS_NODE=&& electron scripts/gen_social_preview.js"
   },
   "author": "",
   "license": "MIT",

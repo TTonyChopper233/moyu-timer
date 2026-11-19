@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body { width: 1280px; height: 640px; margin: 0; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+    color: #eafcff;
+    background:
+      linear-gradient(112deg, rgba(28, 150, 176, .09) 0 9%, transparent 9% 18%, rgba(30, 158, 184, .07) 18% 27%, transparent 27% 100%),
+      linear-gradient(180deg, #073b50 0%, #062f43 43%, #041e31 100%);
+  }
+  .ocean-grid {
+    position: absolute; inset: 0; opacity: .2;
+    background-image:
+      linear-gradient(rgba(78, 191, 205, .09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(78, 191, 205, .09) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .border { position: absolute; inset: 12px; border: 3px solid #15566b; pointer-events: none; }
+  .border:before { content: ""; position: absolute; inset: 5px; border: 1px solid rgba(67, 168, 186, .18); }
+  .corner { position: absolute; width: 18px; height: 18px; background: #38a9bd; z-index: 2; }
+  .c1 { left: 9px; top: 9px; } .c2 { right: 9px; top: 9px; }
+  .c3 { left: 9px; bottom: 9px; } .c4 { right: 9px; bottom: 9px; }
+  .ray { position: absolute; top: -50px; height: 700px; transform: rotate(15deg); transform-origin: top; background: linear-gradient(180deg, rgba(83, 208, 220, .11), transparent 78%); }
+  .r1 { left: 180px; width: 90px; } .r2 { left: 410px; width: 40px; } .r3 { left: 855px; width: 100px; }
+  .left { position: absolute; left: 62px; top: 52px; width: 580px; z-index: 3; }
+  .eyebrow { display: flex; align-items: center; gap: 13px; color: #7fd5df; font: 700 16px/1 Consolas, monospace; letter-spacing: 3px; }
+  .eyebrow img { width: 34px; height: 34px; image-rendering: pixelated; }
+  .eyebrow .line { width: 48px; height: 2px; background: #2a8498; }
+  h1 { margin: 31px 0 10px; color: #ffd367; font-size: 84px; line-height: 1.08; letter-spacing: 5px; font-weight: 900; text-shadow: 5px 5px 0 #826733, 9px 9px 0 rgba(0, 12, 24, .35); }
+  .english { color: #60c1d0; font: 700 18px/1.2 Consolas, monospace; letter-spacing: 8px; margin-left: 5px; }
+  .tagline { margin: 32px 0 9px; font-size: 31px; line-height: 1.35; font-weight: 800; letter-spacing: 1px; color: #f1fdff; }
+  .sub { color: #9bd4dd; font-size: 19px; letter-spacing: 1px; }
+  .stats { display: flex; gap: 12px; margin-top: 29px; }
+  .stat { min-width: 146px; padding: 12px 16px 11px; background: rgba(8, 57, 73, .86); border: 2px solid #1b6478; box-shadow: 4px 4px 0 rgba(0, 12, 24, .35); }
+  .stat strong { display: block; color: #ffd367; font: 800 23px/1.1 Consolas, "Microsoft YaHei", sans-serif; }
+  .stat span { display: block; margin-top: 6px; color: #a8dce3; font-size: 14px; letter-spacing: 1px; }
+  .local { display: flex; align-items: center; gap: 10px; margin-top: 29px; color: #7fd5df; font-size: 16px; letter-spacing: 1px; }
+  .local i { display: inline-block; width: 9px; height: 9px; background: #6de0c1; box-shadow: 0 0 0 4px rgba(109, 224, 193, .1); }
+  .window { position: absolute; right: 48px; top: 43px; width: 552px; height: 554px; z-index: 4; background: #062739; border: 3px solid #28778b; box-shadow: 10px 10px 0 rgba(0, 10, 21, .45), 0 0 0 7px rgba(4, 29, 44, .65); }
+  .titlebar { height: 30px; display: flex; align-items: center; padding: 0 11px; background: #0b3a4e; border-bottom: 2px solid #1c5a6d; color: #75c4d0; font: 700 11px/1 Consolas, monospace; letter-spacing: 2px; }
+  .titlebar .dots { display: flex; gap: 5px; margin-right: 12px; }
+  .titlebar .dots i { width: 7px; height: 7px; background: #ffd367; }
+  .titlebar .dots i:nth-child(2) { background: #5ac8d5; }
+  .titlebar .dots i:nth-child(3) { background: #ef8a72; }
+  .window img { display: block; width: 546px; height: 518px; object-fit: cover; object-position: center; }
+  .download { position: absolute; left: 64px; bottom: 43px; z-index: 5; display: flex; align-items: center; gap: 15px; }
+  .download .label { padding: 10px 16px; background: #ffd367; color: #153342; border: 3px solid #ffdf86; box-shadow: 4px 4px 0 #715f36; font-size: 17px; font-weight: 900; letter-spacing: 1px; }
+  .download .url { color: #5faebb; font: 14px/1.2 Consolas, monospace; }
+  .fish { position: absolute; width: 22px; height: 12px; background: #62cad4; z-index: 2; box-shadow: 4px 4px 0 #62cad4, -6px 3px 0 #32889a; opacity: .7; }
+  .fish:after { content: ""; position: absolute; right: 3px; top: 2px; width: 3px; height: 3px; background: #062f43; }
+  .f1 { left: 602px; top: 74px; transform: scale(.75); }
+  .f2 { left: 585px; top: 465px; transform: scale(.55); opacity: .45; }
+  .bubble { position: absolute; width: 7px; height: 7px; border: 2px solid #68c8d5; opacity: .45; z-index: 2; }
+  .b1 { left: 35px; top: 270px; } .b2 { left: 614px; top: 116px; width: 10px; height: 10px; }
+  .b3 { left: 606px; top: 92px; width: 5px; height: 5px; } .b4 { left: 29px; top: 245px; width: 4px; height: 4px; }
+  .seabed { position: absolute; left: 18px; right: 18px; bottom: 18px; height: 10px; background: repeating-linear-gradient(90deg, #0b4154 0 18px, #0d4c5e 18px 36px); opacity: .8; }
+</style>
+</head>
+<body>
+  <div class="ocean-grid"></div>
+  <div class="ray r1"></div><div class="ray r2"></div><div class="ray r3"></div>
+  <div class="border"></div>
+  <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+  <div class="seabed"></div>
+  <div class="left">
+    <div class="eyebrow"><img src="../../build/icon.png" alt=""><span>MOYU TIMER</span><span class="line"></span><span>V1.0</span></div>
+    <h1>摸鱼计时器</h1>
+    <div class="english">A TINY DEEP-SEA BREAK</div>
+    <div class="tagline">把摸鱼，做成一场深海潜航</div>
+    <div class="sub">藏在屏幕角落的像素小游戏</div>
+    <div class="stats">
+      <div class="stat"><strong>04</strong><span>套深海主题</span></div>
+      <div class="stat"><strong>60</strong><span>个梗成就</span></div>
+      <div class="stat"><strong>14</strong><span>位像素角色</span></div>
+    </div>
+    <div class="local"><i></i><span>纯本地运行 · 不联网 · 不上传</span></div>
+  </div>
+  <div class="window">
+    <div class="titlebar"><span class="dots"><i></i><i></i><i></i></span>DESKTOP DIVE / 01</div>
+    <img src="../screenshots/01-main-abyss.png" alt="摸鱼计时器主界面">
+  </div>
+  <div class="download"><span class="label">WINDOWS · 免费下载</span><span class="url">github.com/TTonyChopper233/moyu-timer</span></div>
+  <i class="fish f1"></i><i class="fish f2"></i>
+  <i class="bubble b1"></i><i class="bubble b2"></i><i class="bubble b3"></i><i class="bubble b4"></i>
+</body>
+</html>

@@ -4,6 +4,7 @@
 const zlib = require('zlib');
 const fs = require('fs');
 const path = require('path');
+const ROOT = path.join(__dirname, '..');
 
 function crc32(buf) {
   let c = -1;
@@ -94,7 +95,7 @@ const ihdr = Buffer.alloc(13);
 ihdr.writeUInt32BE(N, 0); ihdr.writeUInt32BE(N, 4);
 ihdr[8] = 8; ihdr[9] = 6; // 8-bit RGBA
 const png = Buffer.concat([sig, chunk('IHDR', ihdr), chunk('IDAT', zlib.deflateSync(raw)), chunk('IEND', Buffer.alloc(0))]);
-fs.writeFileSync(path.join(__dirname, 'tray.png'), png);
+fs.writeFileSync(path.join(ROOT, 'tray.png'), png);
 console.log('tray.png 生成成功，字节数:', png.length, '尺寸:', N + 'x' + N);
 
 // ---- 打包用：按同一套矢量逻辑生成多尺寸图标，封装为 Windows ICO（PNG 压缩） ----
@@ -147,7 +148,7 @@ const entries = SIZES.map((size, i) => {
   return e;
 });
 const ico = Buffer.concat([dir, ...entries, ...images]);
-const buildDir = path.join(__dirname, 'build');
+const buildDir = path.join(ROOT, 'build');
 fs.mkdirSync(buildDir, { recursive: true });
 fs.writeFileSync(path.join(buildDir, 'icon.ico'), ico);
 fs.writeFileSync(path.join(buildDir, 'icon.png'), images[images.length - 1]);
