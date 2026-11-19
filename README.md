@@ -2,9 +2,7 @@
 
 > 把「摸鱼」变成一场深海潜航。一个不联网、不上传、只属于你自己的桌面小组件。
 
-![Electron](https://img.shields.io/badge/Electron-33.4.11-47848F?logo=electron)
-![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Web-blue)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+
 
 ---
 
