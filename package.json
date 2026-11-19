@@ -1,0 +1,42 @@
+{
+  "name": "moyu-timer",
+  "version": "1.0.0",
+  "description": "摸鱼计时器 · 桌面悬浮小窗",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable --x64"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^26.18.0"
+  },
+  "build": {
+    "appId": "cn.moyu.timer",
+    "productName": "摸鱼计时器",
+    "asar": true,
+    "compression": "maximum",
+    "asarUnpack": ["tray.png"],
+    "npmRebuild": false,
+    "electronDist": "node_modules/electron/dist",
+    "files": [
+      "index.html",
+      "main.js",
+      "preload.js",
+      "tray.png"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "target": ["portable"],
+      "icon": "build/icon.ico"
+    },
+    "portable": {
+      "artifactName": "摸鱼计时器便携版.${ext}"
+    }
+  }
+}
