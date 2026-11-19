@@ -3,7 +3,7 @@
 > 工作累了，就潜下去待一会儿🐳
 
 <p align="center">
-  <a href="https://github.com/TTonyChopper233/moyu-timer/releases/latest"><strong>下载 Windows 版</strong></a>
+  <a href="https://github.com/TTonyChopper233/moyu-timer/releases/latest"><strong>🖥️下载 Windows 版</strong></a>
   ·
   <a href="docs/DEVLOG.md">看看开发手记</a>
   ·
@@ -67,7 +67,7 @@
 不联网，不上传，不需要账号，也不记录其他行为。计时、成就和设置只保存在你的电脑里，桌面端数据位于 `%APPDATA%\moyu-timer`，随时可以导出或清空。
 
 
-## 最后
+## 🪸最后
 
 本项目以 [MIT License](LICENSE) 发布。许可证仅适用于项目原创代码；涉及的第三方角色与相关权利归原权利人所有，请将它当作一份非商业的像素二创小作品。
 
