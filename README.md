@@ -1,6 +1,6 @@
 # 摸鱼计时器 · Moyu Timer
 
-> 工作累了，就潜下去待一会儿。
+> 工作累了，就潜下去待一会儿🐳
 
 <p align="center">
   <a href="https://github.com/TTonyChopper233/moyu-timer/releases/latest"><strong>下载 Windows 版</strong></a>
@@ -48,13 +48,13 @@
   <p align="center">240×180，无边框，常驻右下角。像桌面宠物，只是它刚好还会计时。</p>
 </details>
 
-更多主题、角色、报表与隐藏层截图，都放在 [docs/screenshots](docs/screenshots/) 里。
 
-## 下载即用
 
-目前提供 **Windows x64 便携版**，不需要安装，也不需要另外安装 Node.js 或 Electron。
+## 🚀下载即用
 
-1. 打开 [最新 Release](https://github.com/TTonyChopper233/moyu-timer/releases/latest)，下载页面中的 `.exe` 文件。
+无需安装，也不需要另外安装 Node.js 或 Electron。
+
+1. 打开👉 [最新 Release](https://github.com/TTonyChopper233/moyu-timer/releases/latest)，👈下载页面中的 `Mfish.exe` 文件。
 2. 双击运行，小窗会出现在屏幕右下角。
 3. 右键托盘图标，可以显示小窗、展开完整版或退出。
 4. 想换片海域，就在完整版的「航海档案」里更换主题和角色。
@@ -62,15 +62,13 @@
 > 首次运行时，Windows 可能提示「未知发布者」。这是个人项目没有购买代码签名证书的正常现象；确认文件来自本仓库后，可选择「更多信息 → 仍要运行」。
 
 
-## 数据在哪里
+## 📁数据在哪里
 
 不联网，不上传，不需要账号，也不记录其他行为。计时、成就和设置只保存在你的电脑里，桌面端数据位于 `%APPDATA%\moyu-timer`，随时可以导出或清空。
 
 
 ## 最后
 
-这个项目从一张很正经的计时表开始，后来越改越像一个小玩具。中间踩过的坑、重画三次的传送门，以及为什么坚持「暂停不算摸鱼」，都写在了 [开发手记](docs/DEVLOG.md) 里。
-
 本项目以 [MIT License](LICENSE) 发布。许可证仅适用于项目原创代码；涉及的第三方角色与相关权利归原权利人所有，请将它当作一份非商业的像素二创小作品。
 
-如果它让你在某个下午三点笑了一下，欢迎留个 Star；有新点子，也欢迎来 Issue 里聊聊。祝你摸得轻松，也别忘了上浮。
+如果它让你在某个下午三点笑了一下，欢迎留个Star；有新点子。祝摸鱼愉快🐋
